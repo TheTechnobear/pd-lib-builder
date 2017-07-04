@@ -444,7 +444,14 @@ endif
 
 # Beagle, Udoo, RPi2 etc.
 ifeq ($(machine), armv7l)
+release := $(shell uname -r)
+ifeq ($(findstring $(release), 3.8.13xenomai-bone41), $(release))
+  #Bela - based on Xenomai
+  $(info bela build)
+  arch.c.flags = -march=armv7-a -mtune=cortex-a8 -mfloat-abi=hard -mfpu=neon -ftree-vectorize --fast-math
+else
   arch.c.flags = -march=armv7-a -mfpu=vfpv3 -mfloat-abi=hard
+endif
 endif
 
 # Intel 32 bit, build with SSE and SSE2 instructions

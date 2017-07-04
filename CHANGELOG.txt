@@ -1,5 +1,9 @@
 Changelog for Makefile.pdlibbuilder.
 
+vX.X.X
+add detection for Bela , see bela.io
+
+
 v0.4.4, dated 2016-11-22
 Use variable 'system' when evaluating 'for{Linux,Darwin,Windows}'
 (bugfix, issue #31, commit 2c14110)
